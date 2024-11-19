@@ -1,0 +1,66 @@
+{
+    "Task1":{
+        "PlanSize": 5,
+        "DependenceSize": 3,
+        "PlanWork":[
+            "A",
+            "B",
+            "C",
+            "K",
+            "T"
+        ],
+        "DependenceList": [
+            {
+                "dependence": "A",
+                "block": "B"
+            },
+            {
+                "dependence": "B",
+                "block": "C"
+            },
+            {
+                "dependence": "K",
+                "block": "T"
+            }
+        ]
+    },
+    "Task3":{
+        "Size": 5,
+        "OriginalSet":[
+            5,
+            8,
+            1,
+            14,
+            7
+        ]
+    },
+    "Task4":{
+        "Size": 10,
+        "Purpose": 5,
+        "OriginalMassiv":[
+            4,
+            -7,
+            1,
+            5,
+            -4,
+            0,
+            -3,
+            2,
+            4,
+            1
+        ]
+
+    },
+    "Task5":{
+        "Size": 7,
+        "OriginalTree":[
+            22,
+            16,
+            51, 
+            7,
+            19,
+            43,
+            57
+        ]
+    }
+}
