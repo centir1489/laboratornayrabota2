@@ -19,12 +19,7 @@ int main(int argc, char* argv[]){
             PlanWorkStack.SGET();
             std::cout << "\nЛист зависимости: ";
             dependence.MGET();
-            if(isWorkDone(PlanWorkStack, dependence)){
-                cout << "Возможно!\n";
-            }
-            else{
-                cout << "Невозможно!\n";
-            }
+            isWorkDone(PlanWorkStack, dependence);
             break;
         }
         case enumTasks::Task2:{
@@ -40,7 +35,7 @@ int main(int argc, char* argv[]){
             strctTask3 entry = readJsonFileT3(inputed.namefile, inputed.command);
             uSet<int> originalSet = entry.set;
             Massiv<uSet<int>> subSets = AllSubSets(originalSet);
-            int tsel = (originalSet.summ() / 2);
+            int tsel = (originalSet.summ() % 2 == 0) ? originalSet.summ() / 2 : (originalSet.summ() / 2) + 1;
             uSet<int> Set1 = findSummSet(subSets, tsel, 5);
             uSet<int> Set2 = originalSet - Set1; 
             std::cout << "Задание 3\nИзначальное множество: ";
@@ -49,6 +44,7 @@ int main(int argc, char* argv[]){
             Set1.SETGETLINE();
             std::cout << "Подмножество2: ";
             Set2.SETGETLINE();
+            std::cout << "Разница: " << Set1.summ() - Set2.summ() << '\n'; 
             break;
         }
         case enumTasks::Task4:{

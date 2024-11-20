@@ -2,28 +2,41 @@
     "Task1": {
         "DependenceList": [
             {
-                "block": "B",
-                "dependence": "A"
+                "1_dependence": "A",
+                "2_Blocker": "B"
             },
             {
-                "block": "C",
-                "dependence": "B"
+                "1_dependence": "B",
+                "2_Blocker": "C"
             },
             {
-                "block": "T",
-                "dependence": "K"
+                "1_dependence": "B",
+                "2_Blocker": "C"
+                
+            },
+            {
+                "1_dependence": "E",
+                "2_Blocker": "E"
+            },
+            {
+                "1_dependence": "E",
+                "2_Blocker": "G"
+                
             }
         ],
-        "DependenceSize": 3,
-        "PlanSize": 5,
+        "DependenceSize": 5,
+        "PlanSize": 7,
         "PlanWork": [
             "A",
             "B",
             "C",
-            "K",
-            "T"
+            "D",
+            "E",
+            "F",
+            "G"
         ]
     },
+
     "Task3": {
         "OriginalSet": [
             5,
@@ -34,6 +47,8 @@
         ],
         "Size": 5
     },
+
+
     "Task4": {
         "OriginalMassiv": [
             4,
@@ -50,6 +65,8 @@
         "Purpose": 5,
         "Size": 10
     },
+
+
     "Task5": {
         "OriginalTree": [
             22,
@@ -62,6 +79,9 @@
         ],
         "Size": 7
     },
+
+
+    
     "myBloomFiltr": {
         "AmountHashFn": 3,
         "Size": 100,

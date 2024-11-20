@@ -6,8 +6,8 @@
 #include"QueuePlusPlus.h"
 
 template<typename gen_t>
-struct BinaryTree {
-    struct BNode {
+struct BinaryTree{
+    struct BNode{
         gen_t data;
         BNode* Left;
         BNode* Right;
@@ -91,13 +91,12 @@ struct BinaryTree {
             return;
         }
 
-
         QueuePP<BNode*> queue;
         StackPP<int16_t> stack;          
         queue.Push(Tree.root);
-
+        size_t levelSize;
         while(!queue.IsEmpty()){
-            size_t levelSize = queue.Size();
+            levelSize = queue.Size();
             for(size_t q = 0; q < levelSize; q++) {
                 BNode* nextNode = queue.Front();
                 queue.Pop();

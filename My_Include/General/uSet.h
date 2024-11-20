@@ -157,7 +157,7 @@ struct uSet{
     }
 
     void SETDEL(gen_t Value){
-        table[FindIndex(Value)] = -1;
+        table[FindIndex(Value)] = 0;
     }
 
     bool SET_AT(gen_t Value){

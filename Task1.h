@@ -5,6 +5,6 @@
 #include<ostream>
 #include<cstdint>
 
-bool isWorkDone(StackPP<char> ordTasks, Massiv<uPair<char, char>> dependenceTasks);
+void isWorkDone(StackPP<char> ordTasks, Massiv<uPair<char, char>> dependenceTasks);
 
 

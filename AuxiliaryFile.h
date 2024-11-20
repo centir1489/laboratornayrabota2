@@ -39,8 +39,8 @@ strctTask1 readJsonFileT1(const std::string& filename, const std::string& name){
 
         for(size_t q = 0; q < Depensize; q++){
             auto dep = jsFile[name]["DependenceList"][q];
-            char depChar = dep["dependence"].get<std::string>()[0];
-            char blockChar = dep["block"].get<std::string>()[0];
+            char depChar = dep["1_dependence"].get<std::string>()[0];
+            char blockChar = dep["2_Blocker"].get<std::string>()[0];
             strc.dependence.MPUSH({depChar, blockChar});
         }
         
