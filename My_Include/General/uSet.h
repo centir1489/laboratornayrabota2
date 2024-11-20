@@ -90,7 +90,7 @@ struct uSet{
     size_t SETLength(){
         size_t Amount = 0;
         for(size_t q = 0; q < size; q++){
-            if(table[q] != -1){
+            if(table[q] != -1 && table[q] != 0){
                 Amount += 1;
             }
         }

@@ -85,16 +85,20 @@ struct BloomFilter{
         }
         return true;
     }
+
+    void BCLEAR(){
+        bitset.reset();
+    }
 };
 
-size_t defineComandBF(Massiv<std::string> ctrlMass){
-    if(ctrlMass[0] == "exit"){
+size_t defineComandBF(std::string command){
+    if(command == "BCLEAR"){
         return 0;
     }
-    else if(ctrlMass[0] == "BINSERT"){
+    else if(command == "BINSERT"){
         return 1;
     }
-    else if(ctrlMass[0] == "BFIND"){
+    else if(command == "BFIND"){
         return 2;
     }
     return 3;

@@ -1,14 +1,18 @@
 #include"lab2.h"
 
 
-
+// ./lab2 --file lab2Jsonfile.json --Task Task3
+// ./lab2 --file lab2Jsonfile.json --query USETADD mySet ABC324
 int main(int argc, char* argv[]){
-    std::string Choice, file;
-    assignmentProcess(argc, argv, file, Choice);    
-    size_t codeTask = defineTask(Choice);
+    inputedData inputed;
+    assignmentProcess(argc, argv, inputed);    
+
+    size_t codeTask = defineTask(inputed.command);
+    size_t codeStructu = concrectAssigmentStruct(inputed.command);
+
     switch(codeTask){
         case enumTasks::Task1:{
-            strctTask1 entry = readJsonFileT1(file, Choice);
+            strctTask1 entry = readJsonFileT1(inputed.namefile, inputed.command);
             StackPP<char> PlanWorkStack = entry.PlanWork;
             Massiv<uPair<char, char>> dependence = entry.dependence;
             std::cout << "Задание 1\nПорядок задач: ";
@@ -23,8 +27,17 @@ int main(int argc, char* argv[]){
             }
             break;
         }
+        case enumTasks::Task2:{
+            strData entry = readstrJSON(inputed.namefile, inputed.namestructu, codeStructu);
+            uSet<int> set = convertSet(entry);
+            CaseSet(set, inputed.command, inputed.value);
+            entry = SetToEntry(set);
+            entry.Name = inputed.namestructu;
+            PushJSON(inputed.namefile, entry);
+            break;
+        }
         case enumTasks::Task3:{
-            strctTask3 entry = readJsonFileT3(file, Choice);
+            strctTask3 entry = readJsonFileT3(inputed.namefile, inputed.command);
             uSet<int> originalSet = entry.set;
             Massiv<uSet<int>> subSets = AllSubSets(originalSet);
             int tsel = (originalSet.summ() / 2);
@@ -39,7 +52,7 @@ int main(int argc, char* argv[]){
             break;
         }
         case enumTasks::Task4:{
-            strctTask4 entry = readJsonFileT4(file, Choice);
+            strctTask4 entry = readJsonFileT4(inputed.namefile, inputed.command);
             Massiv<int16_t> originalMassiv = entry.SubMas;
             int16_t purpose = entry.purpose;
             Massiv<Massiv<int16_t>> SubMas = AllSubMass(originalMassiv);
@@ -51,7 +64,7 @@ int main(int argc, char* argv[]){
             break;
         }
         case enumTasks::Task5:{
-            strctTask5 entry = readJsonFileT5(file, Choice);
+            strctTask5 entry = readJsonFileT5(inputed.namefile, inputed.command);
             BinaryTree<int16_t> BT = entry.ntree;
             std::cout << "Задание 5\n Простой вывод дерева: ";
             BT.get();
@@ -63,19 +76,12 @@ int main(int argc, char* argv[]){
             break;
         }
         case enumTasks::Task6:{
-            std::string command;
-            BloomFilter HT(100, 3);
-            bool isExit = false;
-            std::cout << "Задание 6\n Вводите команды для фильтра Блума:\n";
-            while(true){
-                cout << '>';
-                getline(cin, command);
-                Massiv<std::string> ctrlMas = readlineInput(command);
-                CaseBF(ctrlMas, HT, isExit);
-                if(isExit){
-                    break;
-                }
-            }
+            strctTask6 entry = readJsonFileT6(inputed.namefile, inputed.namestructu, codeStructu);
+            BloomFilter Bl = convertBl(entry);
+            CaseBF(inputed.command, inputed.value, Bl);
+            entry = BlToEntry(Bl);
+            entry.Name = inputed.namestructu;
+            PushJSON(inputed.namefile, entry);
             break;
         }
         

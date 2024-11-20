@@ -1,43 +1,41 @@
 {
-    "Task1":{
-        "PlanSize": 5,
+    "Task1": {
+        "DependenceList": [
+            {
+                "block": "B",
+                "dependence": "A"
+            },
+            {
+                "block": "C",
+                "dependence": "B"
+            },
+            {
+                "block": "T",
+                "dependence": "K"
+            }
+        ],
         "DependenceSize": 3,
-        "PlanWork":[
+        "PlanSize": 5,
+        "PlanWork": [
             "A",
             "B",
             "C",
             "K",
             "T"
-        ],
-        "DependenceList": [
-            {
-                "dependence": "A",
-                "block": "B"
-            },
-            {
-                "dependence": "B",
-                "block": "C"
-            },
-            {
-                "dependence": "K",
-                "block": "T"
-            }
         ]
     },
-    "Task3":{
-        "Size": 5,
-        "OriginalSet":[
+    "Task3": {
+        "OriginalSet": [
             5,
             8,
             1,
             14,
             7
-        ]
+        ],
+        "Size": 5
     },
-    "Task4":{
-        "Size": 10,
-        "Purpose": 5,
-        "OriginalMassiv":[
+    "Task4": {
+        "OriginalMassiv": [
             4,
             -7,
             1,
@@ -48,19 +46,36 @@
             2,
             4,
             1
-        ]
-
+        ],
+        "Purpose": 5,
+        "Size": 10
     },
-    "Task5":{
-        "Size": 7,
-        "OriginalTree":[
+    "Task5": {
+        "OriginalTree": [
             22,
             16,
-            51, 
+            51,
             7,
             19,
             43,
             57
-        ]
+        ],
+        "Size": 7
+    },
+    "myBloomFiltr": {
+        "AmountHashFn": 3,
+        "Size": 100,
+        "Structu": "BloomFiltr",
+        "bitset": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "mySet": {
+        "Capacity": 16,
+        "Data": [
+            "34",
+            "33",
+            "56"
+        ],
+        "Size": 3,
+        "Structu": "Set"
     }
 }
